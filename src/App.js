@@ -16,8 +16,8 @@ function App() {
 
 
   return (
-    <div className="App">
-        <h3>List of notes</h3>
+    <div className="app">
+        <h2>List of notes</h2>
         <button className="button" onClick={handleClick}>Get notes</button>
         <NoteList notes={notes}/>
     </div>
