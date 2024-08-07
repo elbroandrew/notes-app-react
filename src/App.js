@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from "react";
+import NoteView from "./components/NoteView";
+import NoteList from "./components/NoteList";
+import fetchNotes from "./api";
+
 
 function App() {
+  const [notes, setNotes] = useState([]);
+
+  const handleClick = async () => {
+    const result = await fetchNotes();
+    console.log(result);
+    
+    setNotes(result["data"]);
+    
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h3>List of notes</h3>
+        <button className="button" onClick={handleClick}>Get notes</button>
+        <NoteList />
     </div>
   );
 }
