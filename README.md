@@ -1,7 +1,11 @@
-## start server from main directory:
+## start postgresql Docker container:
 
-`npm run start`
+`sudo docker start postgresql`
 
-## start react frontend from `/frontend` folder:
+## start server:
 
 `npm start`
+
+## start react frontend:
+
+`npm run start-frontend`
